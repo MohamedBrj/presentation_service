@@ -13,8 +13,13 @@ import {
   Cpu,
   Layers,
   Terminal,
-  MessageSquare
+  MessageSquare,
+  Image as ImageIcon
 } from 'lucide-react';
+import ramoneurImage from './assets/ramoneur_ease_mockup.webp';
+import autocrmImage from './assets/autocrm_mockup.webp';
+import smartshopImage from './assets/smartshop_mockup.webp';
+import docugenImage from './assets/docugen_mockup.webp';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -249,11 +254,20 @@ const App = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ProjectCard
+              category="Web App / PWA"
+              title="Ramoneur Ease"
+              desc="Plateforme complète de gestion pour ramoneurs : prise de rendez-vous, facturation, mode hors-ligne et génération de certificats."
+              tags={['Next.js', 'Supabase', 'Tailwind']}
+              color="bg-orange-500"
+              image={ramoneurImage}
+            />
+            <ProjectCard
               category="SaaS B2B"
               title="AutoCRM Dashboard"
               desc="Plateforme de gestion client avec enrichissement automatique des leads via IA."
               tags={['React', 'Node', 'OpenAI']}
               color="bg-blue-500"
+              image={autocrmImage}
             />
             <ProjectCard
               category="E-commerce"
@@ -261,6 +275,7 @@ const App = () => {
               desc="Site e-commerce ultra-rapide avec recommandations produits personnalisées."
               tags={['Next.js', 'Stripe', 'Tailwind']}
               color="bg-purple-500"
+              image={smartshopImage}
             />
             <ProjectCard
               category="Automation"
@@ -268,6 +283,7 @@ const App = () => {
               desc="Agent IA capable de générer et d'envoyer des contrats PDF depuis un email."
               tags={['Python', 'LangChain', 'Gmail API']}
               color="bg-indigo-500"
+              image={docugenImage}
             />
           </div>
 
@@ -395,11 +411,18 @@ const ProcessStep = ({ number, title, desc }) => (
   </div>
 );
 
-const ProjectCard = ({ category, title, desc, tags, color }) => (
+const ProjectCard = ({ category, title, desc, tags, color, image }) => (
   <div className="group rounded-xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
-    <div className={`h-48 ${color} opacity-80 group-hover:opacity-100 transition-opacity relative flex items-center justify-center`}>
-      {/* Mockup visual placeholder */}
-      <Cpu className="text-white opacity-20 w-24 h-24 transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
+    <div className={`h-48 ${color} opacity-80 group-hover:opacity-100 transition-opacity relative flex items-center justify-center overflow-hidden`}>
+      {image ? (
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105 transform"
+        />
+      ) : (
+        <Cpu className="text-white opacity-20 w-24 h-24 transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
+      )}
       <div className="absolute top-4 left-4">
         <span className="px-3 py-1 bg-black/50 backdrop-blur-sm text-white text-xs font-bold rounded-full uppercase tracking-wide">
           {category}
