@@ -16,7 +16,7 @@ import {
   MessageSquare,
   Image as ImageIcon
 } from 'lucide-react';
-import ramoneurImage from './assets/ramoneur_ease_mockup.webp';
+import ramoneurImage from './assets/ramoneurease_screen.png';
 import autocrmImage from './assets/autocrm_mockup.webp';
 import smartshopImage from './assets/smartshop_mockup.webp';
 import docugenImage from './assets/docugen_mockup.webp';
@@ -40,9 +40,9 @@ const App = () => {
           <div className="flex justify-between items-center h-20">
             <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="font-bold text-white">SD</span>
+                <span className="font-bold text-white">OM</span>
               </div>
-              <span className="font-bold text-xl tracking-tight">Sokle<span className="text-indigo-400">Digital</span>.</span>
+              <span className="font-bold text-xl tracking-tight">om<span className="text-indigo-400">sys</span>.</span>
             </div>
 
             {/* Desktop Menu */}
@@ -256,10 +256,11 @@ const App = () => {
             <ProjectCard
               category="Web App / PWA"
               title="Ramoneur Ease"
-              desc="Plateforme complète de gestion pour ramoneurs : prise de rendez-vous, facturation, mode hors-ligne et génération de certificats."
+              desc="Générez vos certificats de ramonage en quelques secondes. Plateforme complète avec facturation et mode hors-ligne."
               tags={['Next.js', 'Supabase', 'Tailwind']}
               color="bg-orange-500"
               image={ramoneurImage}
+              link="https://ramoneurease.fr"
             />
             <ProjectCard
               category="SaaS B2B"
@@ -327,7 +328,7 @@ const App = () => {
                 Développeur Freelance spécialisé dans la création d'expériences web modernes et l'intégration de solutions d'intelligence artificielle.
               </p>
               <div className="flex space-x-4">
-                <SocialIcon icon={<Github size={20} />} />
+                <SocialIcon icon={<Github size={20} />} href="https://github.com/MohamedBrj" />
                 <SocialIcon icon={<Linkedin size={20} />} />
                 <SocialIcon icon={<Twitter size={20} />} />
               </div>
@@ -348,7 +349,7 @@ const App = () => {
               <ul className="space-y-4 text-slate-400">
                 <li className="flex items-center gap-3">
                   <Mail size={18} className="text-indigo-400" />
-                  <a href="mailto:hello@example.com" className="hover:text-white">hello@votresite.com</a>
+                  <a href="mailto:contact@omsysfr" className="hover:text-white">contact@omsys.fr</a>
                 </li>
                 <li className="flex items-center gap-3">
                   <MessageSquare size={18} className="text-indigo-400" />
@@ -365,7 +366,7 @@ const App = () => {
           </div>
 
           <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
-            <p>&copy; 2025 Sokle Digital Freelance. Tous droits réservés.</p>
+            <p>&copy; 2025 omsys Freelance. Tous droits réservés.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-slate-300">Mentions Légales</a>
               <a href="#" className="hover:text-slate-300">Confidentialité</a>
@@ -411,40 +412,59 @@ const ProcessStep = ({ number, title, desc }) => (
   </div>
 );
 
-const ProjectCard = ({ category, title, desc, tags, color, image }) => (
-  <div className="group rounded-xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
-    <div className={`h-48 ${color} opacity-80 group-hover:opacity-100 transition-opacity relative flex items-center justify-center overflow-hidden`}>
-      {image ? (
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105 transform"
-        />
-      ) : (
-        <Cpu className="text-white opacity-20 w-24 h-24 transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
-      )}
-      <div className="absolute top-4 left-4">
-        <span className="px-3 py-1 bg-black/50 backdrop-blur-sm text-white text-xs font-bold rounded-full uppercase tracking-wide">
-          {category}
-        </span>
-      </div>
-    </div>
-    <div className="p-6">
-      <h3 className="text-xl font-bold mb-2 text-white group-hover:text-indigo-400 transition-colors">{title}</h3>
-      <p className="text-slate-400 mb-4 text-sm">{desc}</p>
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <span key={tag} className="text-xs px-2 py-1 rounded bg-slate-800 text-slate-300 font-mono">
-            {tag}
+const ProjectCard = ({ category, title, desc, tags, color, image, link }) => {
+  const CardContent = () => (
+    <>
+      <div className={`h-48 ${color} opacity-80 group-hover:opacity-100 transition-opacity relative flex items-center justify-center overflow-hidden`}>
+        {image ? (
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105 transform"
+          />
+        ) : (
+          <Cpu className="text-white opacity-20 w-24 h-24 transform rotate-12 group-hover:scale-110 transition-transform duration-500" />
+        )}
+        <div className="absolute top-4 left-4">
+          <span className="px-3 py-1 bg-black/50 backdrop-blur-sm text-white text-xs font-bold rounded-full uppercase tracking-wide">
+            {category}
           </span>
-        ))}
+        </div>
       </div>
-    </div>
-  </div>
-);
+      <div className="p-6">
+        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-indigo-400 transition-colors flex items-center gap-2">
+          {title}
+          {link && <ArrowRight size={16} className="-rotate-45 opacity-0 group-hover:opacity-100 transition-opacity" />}
+        </h3>
+        <p className="text-slate-400 mb-4 text-sm">{desc}</p>
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span key={tag} className="text-xs px-2 py-1 rounded bg-slate-800 text-slate-300 font-mono">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </>
+  );
 
-const SocialIcon = ({ icon }) => (
-  <a href="#" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-indigo-600 hover:text-white transition-all">
+  if (link) {
+    return (
+      <a href={link} target="_blank" rel="noopener noreferrer" className="block group rounded-xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all cursor-pointer">
+        <CardContent />
+      </a>
+    );
+  }
+
+  return (
+    <div className="group rounded-xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all">
+      <CardContent />
+    </div>
+  );
+};
+
+const SocialIcon = ({ icon, href = "#" }) => (
+  <a href={href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-indigo-600 hover:text-white transition-all">
     {icon}
   </a>
 );
