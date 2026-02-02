@@ -20,6 +20,7 @@ import ramoneurImage from './assets/ramoneurease_screen.png';
 import autocrmImage from './assets/autocrm_mockup.webp';
 import smartshopImage from './assets/smartshop_mockup.webp';
 import docugenImage from './assets/docugen_mockup.webp';
+import ebookImage from './assets/ebook_screen.png';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -253,6 +254,15 @@ const App = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <ProjectCard
+              category="E-book Interactif"
+              title="AgentIA Mastery"
+              desc="Guide complet pour maîtriser les agents IA autonomes. Plateforme de lecture sécurisée."
+              tags={['React', 'Stripe', 'Tailwind']}
+              color="bg-teal-500"
+              image={ebookImage}
+              link="https://ebook.omsys.fr/"
+            />
             <ProjectCard
               category="Web App / PWA"
               title="Ramoneur Ease"
