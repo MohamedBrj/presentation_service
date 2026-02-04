@@ -17,10 +17,8 @@ import {
   Image as ImageIcon
 } from 'lucide-react';
 import ramoneurImage from './assets/ramoneurease_screen.png';
-import autocrmImage from './assets/autocrm_mockup.webp';
-import smartshopImage from './assets/smartshop_mockup.webp';
-import docugenImage from './assets/docugen_mockup.webp';
-import ebookImage from './assets/ebook_screen.png';
+
+
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -254,15 +252,7 @@ const App = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ProjectCard
-              category="E-book Interactif"
-              title="AgentIA Mastery"
-              desc="Guide complet pour maîtriser les agents IA autonomes. Plateforme de lecture sécurisée."
-              tags={['React', 'Stripe', 'Tailwind']}
-              color="bg-teal-500"
-              image={ebookImage}
-              link="https://ebook.omsys.fr/"
-            />
+
             <ProjectCard
               category="Web App / PWA"
               title="Ramoneur Ease"
@@ -272,30 +262,7 @@ const App = () => {
               image={ramoneurImage}
               link="https://ramoneurease.fr"
             />
-            <ProjectCard
-              category="SaaS B2B"
-              title="AutoCRM Dashboard"
-              desc="Plateforme de gestion client avec enrichissement automatique des leads via IA."
-              tags={['React', 'Node', 'OpenAI']}
-              color="bg-blue-500"
-              image={autocrmImage}
-            />
-            <ProjectCard
-              category="E-commerce"
-              title="SmartShop Vitrine"
-              desc="Site e-commerce ultra-rapide avec recommandations produits personnalisées."
-              tags={['Next.js', 'Stripe', 'Tailwind']}
-              color="bg-purple-500"
-              image={smartshopImage}
-            />
-            <ProjectCard
-              category="Automation"
-              title="DocuGen Agent"
-              desc="Agent IA capable de générer et d'envoyer des contrats PDF depuis un email."
-              tags={['Python', 'LangChain', 'Gmail API']}
-              color="bg-indigo-500"
-              image={docugenImage}
-            />
+
           </div>
 
           <div className="mt-8 text-center md:hidden">
@@ -332,7 +299,7 @@ const App = () => {
                 <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
                   <span className="font-bold text-white">D</span>
                 </div>
-                <span className="font-bold text-xl tracking-tight">Dev<span className="text-indigo-400">AI</span>.</span>
+                <span className="font-bold text-xl tracking-tight">om<span className="text-indigo-400">sys</span>.</span>
               </div>
               <p className="text-slate-400 mb-6 max-w-sm">
                 Développeur Freelance spécialisé dans la création d'expériences web modernes et l'intégration de solutions d'intelligence artificielle.
