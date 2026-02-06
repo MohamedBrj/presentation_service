@@ -297,7 +297,7 @@ const App = () => {
             <div className="md:col-span-5">
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
-                  <span className="font-bold text-white">D</span>
+                  <span className="font-bold text-white">OM</span>
                 </div>
                 <span className="font-bold text-xl tracking-tight">om<span className="text-indigo-400">sys</span>.</span>
               </div>
